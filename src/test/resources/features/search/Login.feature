@@ -13,9 +13,8 @@ Feature: Login by account
   Scenario: TC_02 Login with invalid email
     Given I click on Login link
     And I input information to login as below
-      | Email       | Password |
-      | namhoang@gm | abc123   |
-    Then I click on Login button
+      | Email        | Password |
+      | namhoang@gm. | abc123   |
     And I should see error message with "invalid email" fields as "Wrong email" at Login page
     Then I close the application
 
@@ -25,7 +24,7 @@ Feature: Login by account
       | Email              | Password |
       | namhoang@gmail.com | Abc!23   |
     Then I click on Login button
-    And I should see error message with "email has not registered" fields as "Login was unsuccessful. Please correct the errors and try again. The credentials provided are incorrect" at Login page
+    And I should see error message with "email has not registered" fields as "Login was unsuccessful. Please correct the errors and try again. No customer account found" at Login page
     Then I close the application
 
   Scenario: Prepare data for TC_04, 05

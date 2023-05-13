@@ -16,11 +16,11 @@ public class LoginPage extends BasePage {
             case "empty email":
             case "invalid email":
                 waitToElementVisible(LoginPageUI.EMAIL_ERROR_TEXTBOX);
-                Assert.assertEquals(getElementText(LoginPageUI.EMAIL_ERROR_TEXTBOX), message);
+                Assert.assertEquals(getElementText(LoginPageUI.EMAIL_ERROR_TEXTBOX).replaceAll("\n"," "), message);
                 break;
             default:
                 waitToElementVisible(LoginPageUI.EXIST_EMAIL_ERROR);
-                Assert.assertEquals(getElementText(LoginPageUI.EXIST_EMAIL_ERROR), message);
+                Assert.assertEquals(getElementText(LoginPageUI.EXIST_EMAIL_ERROR).replaceAll("\n"," "), message);
         }
     }
 
