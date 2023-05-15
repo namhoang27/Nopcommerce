@@ -20,13 +20,10 @@ public class BasePage extends PageObject {
     private Actions action;
     private Select select;
 
-
-    public String getCurrentUrl() {
-        return getDriver().getCurrentUrl();
-    }
-
-    public String getCurrentPageTitle() {
-        return getDriver().getTitle();
+    public void scrollToElementByJs(WebElement item){
+        jsExecutor = (JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
+        sleepInSecond(1);
     }
 
     public String getCurrentPageSource() {

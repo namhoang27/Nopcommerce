@@ -2,10 +2,16 @@ package starter.navigation;
 
 
 import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.By;
 import starter.interfaces.NavigationPageUI;
 import starter.pages.BasePage;
 
 public class NavigateTo extends BasePage {
+    public static final By LOGIN_LINK = By.xpath("//a[@class='ico-login']");
+    public static final By LOGOUT_LINK = By.xpath("//a[@class='ico-logout']");
+    public static final By REGISTER_LINK = By.xpath("//a[@class='ico-register']");
+    public static final By MYACCOUNT_LINK = By.xpath("//a[@class='ico-account']");
+
     public void openHomePage() {
         openUrl("https://demo.nopcommerce.com/");
     }
@@ -15,17 +21,22 @@ public class NavigateTo extends BasePage {
     }
 
     public void i_click_on_login_link() {
-        waitToElementClickable(NavigationPageUI.LOGIN_LINK);
-        clickToElement(NavigationPageUI.LOGIN_LINK);
+        $(LOGIN_LINK).waitUntilClickable();
+        $(LOGIN_LINK).click();
     }
 
     public void i_click_on_register_link() {
-        waitToElementClickable(NavigationPageUI.REGISTER_LINK);
-        clickToElement(NavigationPageUI.REGISTER_LINK);
+        $(REGISTER_LINK).waitUntilClickable();
+        $(REGISTER_LINK).click();
     }
 
     public void i_click_on_myAccount_link() {
-        waitToElementClickable(NavigationPageUI.MYACCOUNT_LINK);
-        clickToElement(NavigationPageUI.MYACCOUNT_LINK);
+        $(MYACCOUNT_LINK).waitUntilClickable();
+        $(MYACCOUNT_LINK).click();
+    }
+
+    public void i_click_on_logout_link() {
+        $(LOGOUT_LINK).waitUntilClickable();
+        $(LOGOUT_LINK).click();
     }
 }

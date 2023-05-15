@@ -47,7 +47,11 @@ public class LoginDefs {
 
     @And("I should see Login successfully and navigate to home page")
     public void iShouldSeeLoginSuccessfullyAndNavigateToHomePage() {
-
         loginPage.verify_login_successfully();
+    }
+
+    @Given("^I click on Logout link$")
+    public void iClickOnLogoutLink() {
+        navigateTo.i_click_on_logout_link();
     }
 }

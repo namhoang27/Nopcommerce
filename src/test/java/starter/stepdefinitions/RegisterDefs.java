@@ -24,11 +24,11 @@ public class RegisterDefs {
         navigateTo.openHomePage();
     }
 
-    @After
-    @Then("^I close the application$")
-    public void closeApplication() {
-        navigateTo.closeApplication();
-    }
+//    @After
+//    @Then("^I close the application$")
+//    public void closeApplication() {
+//        navigateTo.closeApplication();
+//    }
     @Given("^I click on Register link$")
     public void iClickOnRegisterLink() {
         navigateTo.i_click_on_register_link();
