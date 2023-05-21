@@ -1,16 +1,22 @@
 package starter.pages;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.LogManager;
 
 public class BasePage extends PageObject {
     private JavascriptExecutor jsExecutor;
@@ -20,12 +26,16 @@ public class BasePage extends PageObject {
     private Actions action;
     private Select select;
 
-    public void scrollToElementByJs(WebElement item){
-        jsExecutor = (JavascriptExecutor) getDriver();
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", item);
-        sleepInSecond(1);
+    public List<String> getList(String xPath) {
+        List<String> element = new ArrayList<>();
+        List<WebElementFacade> treeNodes = findAll(xPath);
+        System.out.println(treeNodes.size());
+        for (WebElementFacade treeNode : treeNodes) {
+            element.add(treeNode.getText());
+            System.out.println(treeNode.getText());
+        }
+        return element;
     }
-
     public String getCurrentPageSource() {
         return getDriver().getPageSource();
     }
@@ -255,9 +265,6 @@ public class BasePage extends PageObject {
         return getElement(getDynamicLocator(locator, values)).isSelected();
     }
 
-    public void overrideGlobalTimeout(long timeOut) {
-        getDriver().manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
-    }
 
     public boolean isElementUndisplayed(String locator) {
         if (elements.size() == 0) {

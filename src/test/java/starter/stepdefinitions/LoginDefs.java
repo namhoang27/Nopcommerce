@@ -4,6 +4,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import starter.navigation.NavigateTo;
 import starter.pages.LoginPage;
@@ -18,17 +19,12 @@ public class LoginDefs {
     @Steps
     NavigateTo navigateTo;
 
-    @Given("^I click on Login link$")
-    public void iClickOnLoginLink() {
-        navigateTo.i_click_on_login_link();
+    @When("I click on {string} link")
+    public void iClickOnLink(String link) {
+        navigateTo.i_click_on_link(link);
     }
 
-    @Then("I click on Login button")
-    public void iClickOnLoginButton() {
-        loginPage.i_click_on_login_button();
-    }
-
-    @And("^I should see error message with \"([^\"]*)\" fields as \"([^\"]*)\" at Login page$")
+    @And("I should see error message with {string} fields as {string} at Login page")
     public void iShouldSeeErrorMessageWithFieldsAsAtLoginPage(String email, String message) {
         loginPage.verify_message_of_field_at_Login_page(email, message);
     }
@@ -50,8 +46,4 @@ public class LoginDefs {
         loginPage.verify_login_successfully();
     }
 
-    @Given("^I click on Logout link$")
-    public void iClickOnLogoutLink() {
-        navigateTo.i_click_on_logout_link();
-    }
 }

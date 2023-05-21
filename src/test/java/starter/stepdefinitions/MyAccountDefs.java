@@ -50,11 +50,6 @@ public class MyAccountDefs {
         }
     }
 
-    @Then("I click on My Account link")
-    public void iClickOnMyAccountLink() {
-        navigateTo.i_click_on_myAccount_link();
-    }
-
     @Then("I click Save button after update customer info")
     public void iClickSaveButtonAfterUpdateCustomerInfo() {
         myAccountPage.click_save_btn();

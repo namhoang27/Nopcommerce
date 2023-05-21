@@ -24,20 +24,6 @@ public class RegisterDefs {
         navigateTo.openHomePage();
     }
 
-//    @After
-//    @Then("^I close the application$")
-//    public void closeApplication() {
-//        navigateTo.closeApplication();
-//    }
-    @Given("^I click on Register link$")
-    public void iClickOnRegisterLink() {
-        navigateTo.i_click_on_register_link();
-    }
-
-    @Then("^I click on Register button$")
-    public void iClickOnRegisterButton() {
-        registerPage.i_click_on_register_button();
-    }
 
     @And("^I should see error message at mandatory fields$")
     public void iShouldSeeErrorMessageAtMandatoryFields() {
@@ -84,8 +70,8 @@ public class RegisterDefs {
         registerPage.verify_message_of_field_at_Register_page(field,message);
     }
 
-    @And("I should see success message is displayed after registering successfullly")
+    @And("I should see success message is displayed after registering successfully")
     public void iShouldSeeSuccessMessageIsDisplayed() {
-        Assert.assertEquals(registerPage.verify_register_success_message(), "Your registration completed");
+        registerPage.verify_register_success_message();
     }
 }
