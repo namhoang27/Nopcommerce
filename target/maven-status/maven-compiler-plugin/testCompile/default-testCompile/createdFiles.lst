@@ -1,6 +1,0 @@
-starter/CucumberTestSuite.class
-starter/pages/RegisterPage.class
-starter/navigation/NavigateTo.class
-starter/stepdefinitions/RegisterDefs.class
-starter/interfaces/RegisterPageUI.class
-starter/pages/GlobalConstants.class
