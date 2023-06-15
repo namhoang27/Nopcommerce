@@ -12,7 +12,9 @@ public class NavigateTo extends BasePage {
     public static final By LOGOUT_LINK = By.xpath("//a[@class='ico-logout']");
     public static final By REGISTER_LINK = By.xpath("//a[@class='ico-register']");
     public static final By MYACCOUNT_LINK = By.xpath("//a[@class='ico-account']");
+    public static final By WISHLIST_LINK = By.xpath("//span[@class='wishlist-label']");
     public static final By SEARCH_BUTTON = By.xpath("//button[@class='button-1 search-button']");
+    public static final By CLEAR_LIST_BUTTON = By.xpath("//a[normalize-space()='Clear list']");
     public static final By LOGIN_BUTTON = By.xpath("//button[normalize-space()='Log in']");
     public static final By REGISTER_BUTTON = By.xpath("//button[@id='register-button']");
 
@@ -46,9 +48,14 @@ public class NavigateTo extends BasePage {
                 $(LOGOUT_LINK).click();
                 logger.info("Clicked on My Account Link. {}",LOGOUT_LINK);
                 break;
+            case "Wishlist":
+                $(WISHLIST_LINK).waitUntilClickable();
+                $(WISHLIST_LINK).click();
+                logger.info("Clicked on Wish List Link. {}",WISHLIST_LINK);
+                break;
             default:
                 logger.error("Inputted invalid Link label!!!");
-                logger.info("List button: Login, Register, My Acoount");
+                logger.info("List button: Login, Register, My Acoount, Wishlist");
                 break;
         }
     }
@@ -71,9 +78,14 @@ public class NavigateTo extends BasePage {
                 $(LOGIN_BUTTON).click();
                 logger.info("Clicked on Login Button {}",LOGIN_BUTTON);
                 break;
+            case "CLEAR LIST":
+                $(CLEAR_LIST_BUTTON).waitUntilClickable();
+                $(CLEAR_LIST_BUTTON).click();
+                logger.info("Clicked on Clear list Button {}",CLEAR_LIST_BUTTON);
+                break;
             default:
                 logger.error("Inputted invalid button label!!!");
-                logger.info("List button: Login, Register, Search");
+                logger.info("List button: Login, Register, Search, Clear list");
                 break;
         }
     }

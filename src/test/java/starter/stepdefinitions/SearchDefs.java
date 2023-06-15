@@ -56,7 +56,7 @@ public class SearchDefs {
     }
 
     @Then("I verify the message will be displayed {string} with case {string}")
-    public void iVerifyTheMessageWillBeDisplayedWithCase(String message, String withcase) {
+    public void iVerifyTheMessageWillBeDisplayedWithCase(String message, String withcase) throws Exception {
         searchPage.verify_message_will_be_displayed(message,withcase);
     }
 }

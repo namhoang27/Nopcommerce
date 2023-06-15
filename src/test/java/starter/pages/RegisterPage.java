@@ -1,10 +1,10 @@
 package starter.pages;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.junit.*;
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import starter.navigation.NavigateTo;
+
 
 public class RegisterPage extends BasePage {
 
@@ -17,7 +17,6 @@ public class RegisterPage extends BasePage {
     public static final By EMAIL_TEXTBOX = By.xpath("//input[@id='Email']");
     public static final By PASSWORD_TEXTBOX = By.xpath("//input[@id='Password']");
     public static final By CONFIRM_PASSWORD_TEXTBOX = By.xpath("//input[@id='ConfirmPassword']");
-    public static final By REGISTER_BUTTON = By.xpath("//button[@id='register-button']");
     public static final By DAY_DROPDOWN = By.xpath("//select[@name='DateOfBirthDay']");
     public static final By MONTH_DROPDOWN = By.xpath("//select[@name='DateOfBirthMonth']");
     public static final By YEAR_DROPDOWN = By.xpath("//select[@name='DateOfBirthYear']");

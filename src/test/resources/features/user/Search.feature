@@ -110,7 +110,7 @@ Feature: Search product
     And I click on "Search" button
     Then I verify the message will be displayed "No products were found that matched your criteria." with case "data does not exist"
 
-  @test
+
   Scenario: TC_08 Search with Advanced search is checked and Correct Manufacturer
     When I click on "Login" link
     And I input information to login as below

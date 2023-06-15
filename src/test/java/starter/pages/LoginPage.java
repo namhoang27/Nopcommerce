@@ -1,11 +1,10 @@
 package starter.pages;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.junit.*;
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import starter.navigation.NavigateTo;
+
 
 public class LoginPage extends BasePage {
     private static final Logger logger = LoggerFactory.getLogger(LoginPage.class);

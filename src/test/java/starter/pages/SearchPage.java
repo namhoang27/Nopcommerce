@@ -1,14 +1,11 @@
 package starter.pages;
 
-import org.junit.Assert;
+import org.junit.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class SearchPage extends BasePage{
@@ -61,7 +58,7 @@ public class SearchPage extends BasePage{
         }
     }
 
-    public void verify_message_will_be_displayed(String message,String withcase) {
+    public void verify_message_will_be_displayed(String message,String withcase) throws Exception {
         switch (withcase){
             case "empty data":
                 $(".warning").waitUntilVisible();
@@ -74,9 +71,8 @@ public class SearchPage extends BasePage{
                 logger.info("Locator of message {}",".no-result");
                 break;
             default:
-                logger.error("Invalid case!!!");
                 logger.info("Input the supported case currently: empty data, data does not exist");
-                break;
+                throw new Exception("Invalid case!!!");
         }
     }
 

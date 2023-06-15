@@ -1,9 +1,8 @@
 package starter.pages;
 
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.junit.*;
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -83,6 +82,7 @@ public class MyAccountPage extends BasePage {
     public void verify_message_save_info_successfully(String message) {
         $("//p[@class='content']").waitUntilVisible();
         Assert.assertEquals($("//p[@class='content']").getText().trim(), message);
+        $("//p[@class='content']").waitUntilNotVisible();
     }
 
     public void click_add_new_btn() {
