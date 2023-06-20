@@ -13,6 +13,7 @@ public class NavigateTo extends BasePage {
     public static final By REGISTER_LINK = By.xpath("//a[@class='ico-register']");
     public static final By MYACCOUNT_LINK = By.xpath("//a[@class='ico-account']");
     public static final By WISHLIST_LINK = By.xpath("//span[@class='wishlist-label']");
+    public static final By CART_LINK = By.xpath("//span[@class='cart-label']");
     public static final By SEARCH_BUTTON = By.xpath("//button[@class='button-1 search-button']");
     public static final By CLEAR_LIST_BUTTON = By.xpath("//a[normalize-space()='Clear list']");
     public static final By LOGIN_BUTTON = By.xpath("//button[normalize-space()='Log in']");
@@ -53,9 +54,14 @@ public class NavigateTo extends BasePage {
                 $(WISHLIST_LINK).click();
                 logger.info("Clicked on Wish List Link. {}",WISHLIST_LINK);
                 break;
+            case "Shopping cart":
+                $(CART_LINK).waitUntilClickable();
+                $(CART_LINK).click();
+                logger.info("Clicked on Shopping cart Link. {}",CART_LINK);
+                break;
             default:
                 logger.error("Inputted invalid Link label!!!");
-                logger.info("List button: Login, Register, My Acoount, Wishlist");
+                logger.info("List button: Login, Register, My Acoount, Wishlist, Shopping cart");
                 break;
         }
     }
@@ -88,5 +94,13 @@ public class NavigateTo extends BasePage {
                 logger.info("List button: Login, Register, Search, Clear list");
                 break;
         }
+    }
+
+    public void openTheAdminPage() {
+        openUrl("https://admin-demo.nopcommerce.com/");
+        String xPathLoginBtn = "//button[normalize-space()='Log in']";
+        $(xPathLoginBtn).waitUntilClickable();
+        $(xPathLoginBtn).click();
+        logger.info("Open Website https://admin-demo.nopcommerce.com/");
     }
 }

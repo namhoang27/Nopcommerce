@@ -40,24 +40,10 @@ public class BasePage extends PageObject {
         return getDriver().getPageSource();
     }
 
-    public void backToPage() {
-        getDriver().navigate().back();
-    }
-
-    public void forwardToPage() {
-        getDriver().navigate().forward();
-    }
-
-    public void refreshCurrentPage() {
-        getDriver().navigate().refresh();
-    }
-
-    public void acceptAlert() {
-        getDriver().switchTo().alert().accept();
-    }
-
-    public void cancelAlert() {
-        getDriver().switchTo().alert().dismiss();
+    public void clickByJs(String xpath){
+        WebElement element = getDriver().findElement(By.xpath(xpath));
+        JavascriptExecutor executor = (JavascriptExecutor)getDriver();
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public String getTextAlert() {
@@ -101,7 +87,11 @@ public class BasePage extends PageObject {
     }
 
     public WebElement getElement(String locator) {
-        return getDriver().findElement(getByXpath(locator));
+       try {
+           return getDriver().findElement(getByXpath(locator));
+       } catch (NoSuchElementException e){
+           return null;
+       }
     }
 
     public List<WebElement> getElements(String locator) {

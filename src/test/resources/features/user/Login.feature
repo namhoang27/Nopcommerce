@@ -28,7 +28,7 @@ Feature: Login by account
     
 
   Scenario: Prepare data for TC_04, 05
-    Given I click on Register link
+    Given I click on "Register" link
     When I input information to register an account as below
       | Gender | First name | Last name | Day | Month | Year | Email              | Company Name | Password | Confirm password |
       | Male   | Nam        | Hoang     | 6   | July  | 1990 | namhoang@gmail.com | Facegram     | Abc!23   | Abc!23           |

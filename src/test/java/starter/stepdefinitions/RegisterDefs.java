@@ -18,10 +18,15 @@ public class RegisterDefs {
 
     @Steps
     RegisterPage registerPage;
-    @Before
+
     @Given("I open the home page")
     public void openTheHomePage() {
         navigateTo.openHomePage();
+    }
+
+    @Given("I open the admin page")
+    public void openTheAdminPage() {
+        navigateTo.openTheAdminPage();
     }
 
 
